@@ -2105,6 +2105,9 @@ html {
 .bg-\[url\(\'\/img\/Clouds5\.jpg\'\)\] {
   background-image: url('/img/Clouds5.jpg');
 }
+.bg-\[url\(\'img\/Clouds5\.jpg\'\)\] {
+  background-image: url('img/Clouds5.jpg');
+}
 .bg-cover {
   background-size: cover;
 }
