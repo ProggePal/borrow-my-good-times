@@ -8,9 +8,8 @@
 
 .noise {
     background-color: #deffb7;
-    background-image: url(img/Noise-custom.png);
+    background-image: url(img/5-o.png);
 }
-
 /* Way to cool button */
 .pushable {
     position: relative;
@@ -87,4 +86,137 @@
 }
 .pushable:focus:not(:focus-visible) {
     outline: none;
+}
+
+.move1 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: url(img/poster-drop-animate1.png) repeat-x;
+    background-size: cover;
+    animation: drop1 7000s linear infinite;
+}
+@keyframes drop1 {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 8000% 0;
+    }
+}
+.move2 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: url(img/poster-drop-animate2.png) repeat-x;
+    background-size: cover;
+    animation: drop2 5000s linear infinite;
+}
+@keyframes drop2 {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 9000% 0;
+    }
+}
+
+body {
+    --translate: 200px;
+}
+
+.recessed {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    object-fit: cover;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .recessed {
+        height: calc(100% + var(--translate));
+        animation: parallax linear;
+        animation-timeline: scroll(root);
+    }
+
+    .floating {
+        transform: translateY(var(--pad));
+        animation: float auto linear;
+        animation-timeline: scroll(root);
+    }
+}
+
+@keyframes parallax {
+    from {
+        transform: translateY(calc(var(--translate) * -1));
+    }
+    to {
+        transform: translateY(var(--translate));
+    }
+}
+
+@keyframes float {
+    to {
+        transform: translateY(calc(var(--pad) * -1));
+    }
+}
+
+@layer base {
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: calc(var(--pad) * 1.5) var(--pad);
+    }
+
+    header {
+        padding: var(--pad) 0;
+        position: relative;
+        overflow: hidden;
+        min-height: min(80vh, 700px);
+        display: flex;
+        align-items: center;
+    }
+
+    .content {
+        position: relative;
+        z-index: 1;
+    }
+
+    /*  .grid-img-wrapper {
+    aspect-ratio: 4 / 3;
+  } */
+
+    .grid {
+        display: grid;
+    }
+
+    .flow {
+        > * + * {
+            margin-block-start: 1rem;
+        }
+
+        > * + :where(.grid, figure),
+        > :where(.grid, figure) + * {
+            margin-block-start: calc(var(--pad) * 1.5);
+        }
+    }
 }
