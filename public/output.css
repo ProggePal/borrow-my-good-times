@@ -1912,6 +1912,9 @@ html {
   margin-bottom: 0px;
   margin-left: -1px;
 }
+.pointer-events-none {
+  pointer-events: none;
+}
 .absolute {
   position: absolute;
 }
@@ -2021,6 +2024,11 @@ html {
   --tw-translate-y: -200px;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
+.select-none {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
 .grid-flow-col {
   grid-auto-flow: column;
 }
@@ -2055,6 +2063,9 @@ html {
   --tw-border-opacity: 1;
   border-color: rgb(124 15 255 / var(--tw-border-opacity));
 }
+.bg-\[\#C8CAFEFF\] {
+  background-color: #C8CAFEFF;
+}
 .bg-base-200 {
   --tw-bg-opacity: 1;
   background-color: hsl(var(--b2) / var(--tw-bg-opacity));
@@ -2066,14 +2077,6 @@ html {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-.bg-blue-800 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(30 64 175 / var(--tw-bg-opacity));
-}
-.bg-black {
-  --tw-bg-opacity: 1;
-  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 .bg-\[url\(\'img\/Clouds5\.jpg\'\)\] {
   background-image: url('img/Clouds5.jpg');
@@ -2136,9 +2139,6 @@ html {
 }
 .opacity-70 {
   opacity: 0.7;
-}
-.bg-blend-saturation {
-  background-blend-mode: saturation;
 }
 .shadow {
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
@@ -2313,6 +2313,40 @@ body {
     to {
         transform: translateY(calc(var(--pad) * -1));
     }
+}
+* {
+    box-sizing: border-box;
+}
+
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(6%);
+        opacity: 0.2;
+    }
+    100% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+@keyframes fadeInUpSmall {
+    0% {
+        transform: translateY(40%);
+        opacity: 0.2;
+    }
+    100% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+.fadeInUp-animation {
+    animation: 1.6s fadeInUp;
+    animation-timing-function: cubic-bezier(0.17, 0.84, 0.44, 1);
+}
+
+.fadeInUp-animation-slow {
+    animation: 2.3s fadeInUpSmall;
+    animation-timing-function: cubic-bezier(0.18, 0.89, 0.48, 1.06);
 }
 
 @media (min-width: 768px) {

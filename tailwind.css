@@ -220,3 +220,37 @@ body {
         }
     }
 }
+* {
+    box-sizing: border-box;
+}
+
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(6%);
+        opacity: 0.2;
+    }
+    100% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+@keyframes fadeInUpSmall {
+    0% {
+        transform: translateY(40%);
+        opacity: 0.2;
+    }
+    100% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+.fadeInUp-animation {
+    animation: 1.6s fadeInUp;
+    animation-timing-function: cubic-bezier(0.17, 0.84, 0.44, 1);
+}
+
+.fadeInUp-animation-slow {
+    animation: 2.3s fadeInUpSmall;
+    animation-timing-function: cubic-bezier(0.18, 0.89, 0.48, 1.06);
+}
